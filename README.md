@@ -1,6 +1,6 @@
 # donate_me
 
-"A new Flutter project."
+"A Blood donation App"
 
 ## Getting Started
 
