@@ -6,14 +6,28 @@ import 'package:sizer/sizer.dart';
 class CustomTheme {
   var lightTheme = ThemeData.light(useMaterial3: true).copyWith(
     // scaffoldBackgroundColor: kPrimaryColor,
-    // primaryColor:,
-    colorScheme: lightColorScheme,
+    primaryColor: kPrimaryColor,
+
+    colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor).copyWith(
+      secondary: kSecondaryColor,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+      // textStyle: ,
+      minimumSize: const Size.fromHeight(60),
+      shape: RoundedRectangleBorder(borderRadius: kBorderRadiusAll),
       backgroundColor: kSecondaryColor,
+      // backgroundColor: ,
       foregroundColor: kTextWhiteColor,
       elevation: 4,
     )),
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: kSecondaryColor,
+      contentTextStyle: TextStyle(
+          color: kTextWhiteColor,
+          fontSize: SizerUtil.deviceType == DeviceType.tablet ? 14.sp : 10.sp,
+          fontWeight: FontWeight.w700),
+    ),
     appBarTheme: AppBarTheme(
       //height for both phone and tablet
       toolbarHeight: SizerUtil.deviceType == DeviceType.tablet ? 9.h : 7.h,
@@ -29,69 +43,83 @@ class CustomTheme {
       ),
       elevation: 0,
     ),
+
     //input decoration theme for all our the app
     inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.symmetric(
+          vertical: kDefaultPadding, horizontal: kDefaultPadding),
       //label style for formField
       labelStyle: TextStyle(
-          fontSize: 11.sp, color: kTextLightColor, fontWeight: FontWeight.w400),
+          fontSize: 50.sp, color: kTextLightColor, fontWeight: FontWeight.w400),
       //hint style
-      hintStyle:
-          const TextStyle(fontSize: 16.0, color: kTextLightColor, height: 0.5),
+      hintStyle: TextStyle(fontSize: 10.sp, color: kTextLightColor, height: 1),
       //we are using underline input border
       //not outline
-      enabledBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(color: kTextLightColor, width: 0.7),
-      ),
-      border: const UnderlineInputBorder(
-        borderSide: BorderSide(color: kTextLightColor),
-      ),
-      disabledBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(color: kTextLightColor),
-      ),
+      enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: kTextLightColor, width: 0.7),
+          borderRadius: kBorderRadiusAll),
+      border: OutlineInputBorder(
+          borderSide: const BorderSide(color: kTextLightColor),
+          borderRadius: kBorderRadiusAll),
+      disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: kTextLightColor),
+          borderRadius: kBorderRadiusAll),
       // on focus  change color
-      focusedBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(
-          color: kPrimaryColor,
-        ),
-      ),
+      focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: kPrimaryColor,
+          ),
+          borderRadius: kBorderRadiusAll),
       //color changes when user enters wrong information,
       //we will use validators for this process
-      errorBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(color: kErrorBorderColor, width: 1.2),
-      ),
+      errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: kErrorBorderColor, width: 1.2),
+          borderRadius: kBorderRadiusAll),
       //same on focus error color
-      focusedErrorBorder: const UnderlineInputBorder(
-        borderSide: BorderSide(
-          color: kErrorBorderColor,
-          width: 1.2,
-        ),
-      ),
+      focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: kErrorBorderColor,
+            width: 1.2,
+          ),
+          borderRadius: kBorderRadiusAll),
     ),
     textTheme: GoogleFonts.poppinsTextTheme().copyWith(
       //custom text for bodyText1
-      headlineSmall: GoogleFonts.chewy(
-        color: kTextLightColor,
+      headlineSmall: TextStyle(
+        color: kPrimaryColor,
         //condition if device is tablet or a phone
-        fontSize: SizerUtil.deviceType == DeviceType.tablet ? 45.sp : 40.sp,
+        fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 10.sp,
+      ),
+      headlineMedium: TextStyle(
+        color: kPrimaryColor,
+        //condition if device is tablet or a phone]
+        fontWeight: FontWeight.w300,
+        fontSize: SizerUtil.deviceType == DeviceType.tablet ? 20.sp : 15.sp,
+      ),
+      headlineLarge: TextStyle(
+        color: kPrimaryColor,
+        fontWeight: FontWeight.w400,
+        //condition if device is tablet or a phone
+        fontSize: SizerUtil.deviceType == DeviceType.tablet ? 22.sp : 25.sp,
       ),
       bodyLarge: const TextStyle(
-          color: kTextBlackColor, fontSize: 15.0, fontWeight: FontWeight.bold),
+          color: kTextHintColor, fontSize: 37.0, fontWeight: FontWeight.bold),
       bodyMedium: const TextStyle(
-        color: kTextLightColor,
-        fontSize: 28.0,
+        color: kTextHintColor,
+        fontSize: 15.0,
       ),
+      bodySmall: TextStyle(
+          color: kTextHintColor,
+          fontSize: SizerUtil.deviceType == DeviceType.tablet ? 15.sp : 10.sp,
+          fontWeight: FontWeight.w500),
       titleMedium: TextStyle(
-          color: kPrimaryColor,
+          color: kTextLightColor,
           fontSize: SizerUtil.deviceType == DeviceType.tablet ? 14.sp : 17.sp,
           fontWeight: FontWeight.w700),
-      titleSmall: GoogleFonts.poppins(
-          color: kPrimaryColor,
+      titleSmall: TextStyle(
+          color: kTextBlackColor,
           fontSize: SizerUtil.deviceType == DeviceType.tablet ? 12.sp : 13.sp,
           fontWeight: FontWeight.w200),
-      bodySmall: GoogleFonts.poppins(
-          color: kOtherColor,
-          fontSize: SizerUtil.deviceType == DeviceType.tablet ? 5.sp : 7.sp,
-          fontWeight: FontWeight.w300),
     ),
   );
 }

@@ -4,47 +4,48 @@ import 'package:sizer/sizer.dart';
 
 //colors
 const Color kPrimaryColor = Color(0xFFBE0038);
-const Color kSecondaryColor = Color(0xFF78FBB6);
+const Color kSecondaryColor = Color(0xff404040);
 const Color kTextBlackColor = Color(0xFF313131);
+const Color kTextHintColor = Color.fromARGB(255, 153, 152, 152);
 const Color kTextWhiteColor = Color(0xFFFFFFFF);
 const Color kContainerColor = Color(0xFFFFDADA);
 const Color kOtherColor = Color(0xFFF4F6F7);
 const Color kTextLightColor = Color(0xFFA5A5A5);
 const Color kErrorBorderColor = Color(0xFFE74C3C);
 
-const lightColorScheme = ColorScheme(
-  brightness: Brightness.light,
-  primary: Color(0xFFBE0038),
-  onPrimary: Color(0xFFFFFFFF),
-  primaryContainer: Color(0xFFFFDADA),
-  onPrimaryContainer: Color(0xFF40000D),
-  secondary: Color(0xFF006D43),
-  onSecondary: Color(0xFFFFFFFF),
-  secondaryContainer: Color(0xFF78FBB6),
-  onSecondaryContainer: Color(0xFF002111),
-  tertiary: Color(0xFF006874),
-  onTertiary: Color(0xFFFFFFFF),
-  tertiaryContainer: Color(0xFF97F0FF),
-  onTertiaryContainer: Color(0xFF001F24),
-  error: Color(0xFFBA1A1A),
-  errorContainer: Color(0xFFFFDAD6),
-  onError: Color(0xFFFFFFFF),
-  onErrorContainer: Color(0xFF410002),
-  background: Color(0xFFFFFBFF),
-  onBackground: Color(0xFF201A1A),
-  surface: Color(0xFFFFFBFF),
-  onSurface: Color(0xFF201A1A),
-  surfaceVariant: Color(0xFFF4DDDD),
-  onSurfaceVariant: Color(0xFF524343),
-  outline: Color(0xFF857373),
-  onInverseSurface: Color(0xFFFBEEED),
-  inverseSurface: Color(0xFF362F2F),
-  inversePrimary: Color(0xFFFFB2B6),
-  shadow: Color(0xFF000000),
-  surfaceTint: Color(0xFFBE0038),
-  outlineVariant: Color(0xFFD7C1C2),
-  scrim: Color(0xFF000000),
-);
+// const lightColorScheme = ColorScheme(
+//   brightness: Brightness.light,
+//   primary: Color(0xFFBE0038),
+//   onPrimary: Color.fromARGB(255, 255, 132, 132),
+//   primaryContainer: Color.fromARGB(255, 250, 0, 0),
+//   onPrimaryContainer: Color.fromARGB(255, 0, 0, 0),
+//   secondary: Color.fromARGB(255, 255, 0, 0),
+//   onSecondary: Color(0xFFFFFFFF),
+//   secondaryContainer: Color(0xFF78FBB6),
+//   onSecondaryContainer: Color(0xFF002111),
+//   tertiary: Color(0xFF006874),
+//   onTertiary: Color(0xFFFFFFFF),
+//   tertiaryContainer: Color(0xFF97F0FF),
+//   onTertiaryContainer: Color(0xFF001F24),
+//   error: Color(0xFFBA1A1A),
+//   errorContainer: Color(0xFFFFDAD6),
+//   onError: Color(0xFFFFFFFF),
+//   onErrorContainer: Color(0xFF410002),
+//   background: Color(0xFFFFFBFF),
+//   onBackground: Color(0xFF201A1A),
+//   surface: Color(0xFFFFFBFF),
+//   onSurface: Color(0xFF201A1A),
+//   surfaceVariant: Color.fromARGB(255, 255, 7, 7),
+//   onSurfaceVariant: Color(0xFF524343),
+//   outline: Color(0xFF857373),
+//   onInverseSurface: Color(0xFFFBEEED),
+//   inverseSurface: Color(0xFF362F2F),
+//   inversePrimary: Color.fromARGB(255, 0, 0, 0),
+//   shadow: Color(0xFF000000),
+//   surfaceTint: Color(0xFFBE0038),
+//   outlineVariant: Color(0xFFD7C1C2),
+//   scrim: Color(0xFF000000),
+// );
 
 const darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
@@ -83,7 +84,11 @@ const darkColorScheme = ColorScheme(
 //default value
 const kDefaultPadding = 20.0;
 
-const sizedBox = SizedBox(
+const klargeSizedBox = SizedBox(
+  height: kDefaultPadding * 2,
+);
+
+const kSmallSizedBox = SizedBox(
   height: kDefaultPadding,
 );
 const kWidthSizedBox = SizedBox(
@@ -102,6 +107,10 @@ final kTopBorderRadius = BorderRadius.only(
   topLeft: Radius.circular(SizerUtil.deviceType == DeviceType.tablet ? 40 : 20),
   topRight:
       Radius.circular(SizerUtil.deviceType == DeviceType.tablet ? 40 : 20),
+);
+
+final kBorderRadiusAll = BorderRadius.all(
+  Radius.circular(SizerUtil.deviceType == DeviceType.tablet ? 40 : 20),
 );
 
 final kBottomBorderRadius = BorderRadius.only(

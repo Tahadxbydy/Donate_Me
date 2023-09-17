@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SizerUtil();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SizerUtil();
   runApp(const MyApp());
 }
 
@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, device) {
       return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: CustomTheme().lightTheme,
         routes: namedRoutes,

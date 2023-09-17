@@ -1,6 +1,7 @@
 // ignore: file_names
+import 'package:donate_me/Screens/sign_in_screen.dart';
 import 'package:donate_me/constants/constants.dart';
-import 'package:donate_me/constants/themes.dart';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -62,7 +63,7 @@ class _OnboardingScreenState extends State<Onboardingscreen> {
             bottom: 16.0,
             child: TextButton(
                 onPressed: () {
-                  // _navigateToHomeScreen();
+                  Navigator.pushReplacementNamed(context, SignIn.routeName);
                 },
                 child: const Text("Skip")),
           ),
@@ -77,7 +78,7 @@ class _OnboardingScreenState extends State<Onboardingscreen> {
                     curve: Curves.easeInOut,
                   );
                 } else {
-                  // _navigateToHomeScreen();
+                  Navigator.pushReplacementNamed(context, SignIn.routeName);
                 }
               },
               child: Text(
@@ -146,12 +147,12 @@ class OnboardingPage extends StatelessWidget {
           height: 200.0,
           width: 200.0,
         ),
-        sizedBox,
+        klargeSizedBox,
         Text(
           item.title,
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        sizedBox,
+        klargeSizedBox,
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.66,
           child: Text(
